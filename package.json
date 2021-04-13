@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "PWDEBUG=1 node -r ts-node/register run.ts"
+    "start": "node -r ts-node/register run.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "playwright": "^1.6.2",
+    "playwright": "^1.10.0",
     "ts-node": "^9.1.1",
     "typescript": "^4.1.2"
   }
