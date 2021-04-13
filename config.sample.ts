@@ -1,0 +1,11 @@
+export const login = "admin";
+export const password = "password";
+export const contextNumber = 2;
+export const categoryNumber = 1;
+export const reportFileName = "/Users/anon/Desktop/report.xls";
+export const reportFirstRowWithData = 11;
+export const reportSheetName = "Report";
+export const operationCode = "A - operator";
+export const doctorName = "Doctor House";
+export const place = "Samorządowy Zakład Opieki Zdrowotnej w Wąchocku";
+export const internshipName = "Medycyna Rodzinna";

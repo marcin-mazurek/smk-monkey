@@ -6,7 +6,8 @@ export const getProcedureNumber = (inputExamDescription: string): number => {
     examDescription.startsWith("cystografia") ||
     examDescription.startsWith("wlew") ||
     examDescription.startsWith("urografia") ||
-    examDescription.startsWith("rtg uretrografia")
+    examDescription.startsWith("rtg uretrografia") ||
+    examDescription.startsWith("badanie jelita cienkiego")
   ) {
     return 2;
   }
@@ -19,7 +20,7 @@ export const getProcedureNumber = (inputExamDescription: string): number => {
     return 3;
   }
 
-  if (examDescription.includes("tk ")) {
+  if (inputExamDescription.includes("TK")) {
     return 4;
   }
 

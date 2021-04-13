@@ -17,7 +17,7 @@ export const handleFillingFormRow = async (
 
   const yearSelect = await row.$(buildCellSelector(4, "select"));
   if (yearSelect) {
-    await yearSelect.selectOption(formValues.year);
+    await yearSelect.selectOption(formValues.yearOfResidency);
   } else {
     console.error("Couldn't find the year select");
   }

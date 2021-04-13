@@ -29,12 +29,12 @@ export const handleProcedureSubmission = async (
 
   const addProcedureButton = await selectedProcedureContainer.$('"Dodaj"');
 
-  for (const formRow of formRows) {
+  for (const formRowValues of formRows) {
     await addProcedureButton.click();
     await page.waitForTimeout(500);
     // new row always gets added as the first one
-    const row = await selectedProcedureContainer.$(`css=[__gwt_row="0"]`);
-    await row.click();
-    await handleFillingFormRow(row, formRow);
+    const rowSelector = await selectedProcedureContainer.$(`css=[__gwt_row="0"]`);
+    await rowSelector.click();
+    await handleFillingFormRow(rowSelector, formRowValues);
   }
 };

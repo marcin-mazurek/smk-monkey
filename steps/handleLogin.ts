@@ -11,6 +11,4 @@ export const handleLogin = async (
   await page.type("[name=password]", password);
   await page.click("[name=login][type=submit]");
   await page.waitForLoadState("load");
-  await page.goto("https://smk.ezdrowie.gov.pl?locale=pl");
-  await page.waitForLoadState("load");
 };

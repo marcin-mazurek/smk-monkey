@@ -1,6 +1,6 @@
 export interface FormRowValues {
   date: string;
-  year: string;
+  yearOfResidency: string;
   operationCode: string;
   doctorName: string;
   place: string;
@@ -8,5 +8,6 @@ export interface FormRowValues {
   patientInitials: string;
   patientGender: "M" | "K";
   assistantName: string;
+  procedureNumber: number;
   procedureGroup: string;
 }
