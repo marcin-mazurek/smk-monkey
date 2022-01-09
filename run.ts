@@ -29,12 +29,13 @@ import {
     );
 
     const formRowsGroupedByProcedures = groupBy(
-      formRows.slice(0, 25),
+      formRows,
       "procedureNumber"
     );
 
-    const browser = await chromium.launch({ headless: false });
+    const browser = await chromium.launch({ headless: false, args: ['--start-maximized'] });
     const page = await browser.newPage();
+    await page.setViewportSize({ width: 1920, height: 1080 });
 
     await handleLogin(page, login, password);
     await handleNavigationToReportPage(page, contextNumber);

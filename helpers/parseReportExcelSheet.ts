@@ -29,20 +29,41 @@ export const parseReportExcelSheet = (
     shouldContinueIterating(reportSheet, row);
     row += 2
   ) {
-    const date = reportSheet[`C${row}`]?.v.slice(0, 10);
+    const rawDate = reportSheet[`C${row}`]?.v.slice(0, 10);
+
+    if (!rawDate) {
+      console.warn(`Row ${row} does not have a date field - skipping`);
+      continue;
+    }
+    
+    const [datePart1, datePart2, datePart3] = (rawDate || '').split('-');
+    let date;
+
+    // starts with year
+    if (datePart1.length === 4) {
+      date = `${datePart1}-${datePart2}-${datePart3}`; 
+    } else {
+      date = `${datePart3}-${datePart2}-${datePart1}`; 
+    }
+
     const patientName = reportSheet[`G${row}`]?.v;
     const patientPesel = reportSheet[`G${row + 1}`]?.v;
     const examDescription = reportSheet[`H${row}`]?.v;
     const assistantName = reportSheet["M" + row]?.v;
-
-    if (
-      !date ||
-      !patientName ||
-      !patientPesel ||
-      !examDescription ||
-      !assistantName
-    ) {
-      console.warn(`Row ${row} contains incorrect values - skipping`);
+    if (!patientName) {
+      console.warn(`Row ${row} does not have a patientName field - skipping`);
+      continue;
+    }
+    if (!patientPesel) {
+      console.warn(`Row ${row} does not have a patientPesel field - skipping`);
+      continue;
+    }
+    if (!examDescription) {
+      console.warn(`Row ${row} does not have an examDescription field - skipping`);
+      continue;
+    }
+    if (!assistantName) {
+      console.warn(`Row ${row} does not have an assistantName field - skipping`);
       continue;
     }
 
